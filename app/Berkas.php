@@ -18,5 +18,4 @@ class Berkas extends Model {
 	 */
 	protected $fillable = ['kategori', 'lokasifile'];
 
-
 }

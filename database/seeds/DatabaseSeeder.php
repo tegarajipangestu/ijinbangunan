@@ -12,9 +12,16 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		Model::unguard();
+        DB::table('bangunans')->delete();
 
-		// $this->call('UserTableSeeder');
-	}
+        $projects = array(
+            ['jenis' => 'Bangunan Permanen 1', 'lokasi' => 'project-1', 'created_at' => new DateTime, 'updated_at' => new DateTime],
+            ['jenis' => 'Bangunan Bertingkat', 'lokasi' => 'project-1', 'created_at' => new DateTime, 'updated_at' => new DateTime],
+            ['jenis' => 'Bangunan Tidak Bertingkat', 'lokasi' => 'project-1', 'created_at' => new DateTime, 'updated_at' => new DateTime],
+            ['jenis' => 'Bangunan Los', 'slug' => 'project-1', 'created_at' => new DateTime, 'updated_at' => new DateTime],
+        );
+ 
+        // Uncomment the below to run the seeder
+        DB::table('projects')->insert($projects);	}
 
 }

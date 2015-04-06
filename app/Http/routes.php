@@ -36,3 +36,10 @@ Route::get('ajukanijin', function()
 {
     return view('ajukanijin');
 });
+
+Route::post('permohonan', 'PermohonanController@store');
+
+Route::any('form-submit', function(){
+	return view('FormIzin.formBerkas');
+});
+

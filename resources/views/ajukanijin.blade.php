@@ -25,37 +25,71 @@
 				<div class="col-md-8">
 				  <div class="contact-form">
 				  	<h2>Permohonan Ijin</h2>
-					    <form method="post" action="contact-post.html">
-					    	<div>
+					    <form method="post" action="permohonan">
+							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
+							<div>
 						    	<span>Nama Lengkap</span>
-						    	<span><input type="text" class="form-control" id="userName"></span>
+						    	<input type="text" class="form-control" name="username" required>
 						    </div>
 						    <div class="row">
 							    <div class="col-md-4">
 							    	<div>
 								    	<span>Luas Tanah (dalam meter persegi)</span>
-								    	<span><input type="number" class="form-control" id="userName"></span>
+								    	<input type="number" class="form-control" name="luas" required>
 								    </div>
 						    	</div>
 							    <div class="col-md-8">
 								    <div>
-								    	<span>Kategori</span>
-								    	<span><input type="email" class="form-control" id="inputEmail3"></span>
+								    	<span>Kategori (Pilih salah satu)</span>
+									      <select class="form-control" name="kategori" required>
+									        <option>Pagar</option>
+									        <option>SPBU</option>
+									        <option>IPA</option>
+									        <option>Sumur</option>
+									        <option>Reservoir</option>
+									        <option>Menara</option>
+									        <option>Kolam Renang</option>
+									        <option>Jembatan</option>
+									        <option>Bangunan</option>
+									        <option>Bangunan Reklame</option>
+									        <option>Lapangan Olahraga</option>	
+									        <option>Perkeras Halaman</option>
+									        <option>Instalasi/Utilitas</option>
+									      </select>
 								    </div>						    	
 							    </div>						    							    	
 						    </div>
 						    <div>
 						    	<span>Pemegang Hak</span>
-						    	<span><input type="email" class="form-control" id="inputEmail3"></span>
+						    	<span><input type="text" class="form-control" name="pemeganghak" required></span>
 						    </div>
 						    <div>
 						    	<span>Status Hak</span>
-						    	<span><input type="email" class="form-control" id="inputEmail3"></span>
+						    	<span><input type="text" class="form-control" name="statushak" required></span>
+						    </div>
+						    <div>
+						    	<span>Alamat Lokasi</span>
+						    	<span><input type="text" class="form-control" name="lokasi" required></span>
 						    </div>
 						    <div>
 						    	<span>Jenis Bangunan</span>
-						    	<span><input type="email" class="form-control" id="inputEmail3"></span>
+						    	<div>
+								      <select class="form-control" name="jenis" required>
+								        <option>Bangunan Permanen I</option>
+								        <option>Bangunan Permanen II</option>
+								        <option>Pagar/Halaman</option>
+								        <option>Bangun-bangunan sesuai di Perda No. 14 Tahun 1998</option>
+								        <option>Renovasi, Rehabilitasi dan Perbaikan Bangunan</option>
+								        <option>Tarif Retribusi Ongkos Bongkar Bangunan</option>
+								      </select>
+						    	</div>
 						    </div>						    
+						    <div>
+						    <br>
+					    	<span>Berkas</span>
+					    	{!! Form::label('Berkas','File',array('id'=>'','class'=>'')) !!}
+						    {!! Form::file('file','',array('id'=>'','class'=>'form-control')) !!}						    	
+						    </div>
 						   <div>
 						   		<span><input type="submit" value="Tambah ijin"></span>
 						  </div>

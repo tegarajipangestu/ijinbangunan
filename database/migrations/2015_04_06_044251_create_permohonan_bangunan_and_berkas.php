@@ -16,6 +16,7 @@ class CreatePermohonanBangunanAndBerkas extends Migration {
 			$table->increments('nomor');
 			$table->string('jenis');
 			$table->string('lokasi');
+			$table->string('kategori');
 			$table->integer('luas');
 			$table->timestamps();
 		});		
@@ -28,11 +29,8 @@ class CreatePermohonanBangunanAndBerkas extends Migration {
 		Schema::create('permohonans', function(Blueprint $table) {
 			$table->increments('nomor');
 			$table->string('username');
-			$table->integer('luastanah');
 			$table->string('statushak');
 			$table->string('pemeganghak');
-			$table->string('kategori');
-			$table->string('jenisbangunan');						
 			$table->integer('bangunan_nomor')->unsigned();
 			$table->foreign('bangunan_nomor')->references('nomor')->on('bangunans')->onDelete('cascade');
 			$table->integer('berkas_id_ajuan')->unsigned();	
@@ -48,8 +46,8 @@ class CreatePermohonanBangunanAndBerkas extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('permohonan');
-		Schema::drop('bangunan');
+		Schema::drop('permohonans');
+		Schema::drop('bangunans');
 		Schema::drop('berkas');
 	}
 
