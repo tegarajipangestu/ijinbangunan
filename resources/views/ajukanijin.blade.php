@@ -86,7 +86,7 @@
 						    </div>						    
 						    <div>
 						    <br>
-					    	<span>Berkas</span>
+					    	<span>Upload Berkas</span>
 					    	{!! Form::label('Berkas','File',array('id'=>'','class'=>'')) !!}
 						    {!! Form::file('file','',array('id'=>'','class'=>'form-control')) !!}						    	
 						    </div>

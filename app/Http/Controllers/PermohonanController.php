@@ -62,7 +62,7 @@ class PermohonanController extends Controller {
 		$permohonan->bangunan_nomor = $bangunantemp['nomor'];
 		$permohonan->berkas_id_ajuan = $berkastemp['id_ajuan'];
 		$permohonan->save();
-		return redirect('home');
+		return redirect('retribusi');
 	}
 
 	/**

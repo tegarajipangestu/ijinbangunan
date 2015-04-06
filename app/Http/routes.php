@@ -37,6 +37,16 @@ Route::get('ajukanijin', function()
     return view('ajukanijin');
 });
 
+Route::get('showijin', function()
+{
+    return view('showijin');
+});
+
+Route::get('retribusi', function()
+{
+    return view('halamanretribusi');
+});
+
 Route::post('permohonan', 'PermohonanController@store');
 
 Route::any('form-submit', function(){

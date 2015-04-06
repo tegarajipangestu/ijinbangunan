@@ -47,7 +47,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		      <ul class="menu nav navbar-nav ">
 		        <li class="active"><a href="home">Beranda</a></li>
 		        <li><a href="ajukanijin">Ajukan ijin</a></li>
-		        <li><a href="blog.html">Menu1</a></li>
+		        <li><a href="showijin">Daftar Ijin</a></li>
 		        <li><a href="about.html">Menu2</a></li>
 		        <li><a href="contact.html">Menu3</a></li>
 		      </ul>
