@@ -17,34 +17,39 @@
       				<address>
 						 <p>Jl.Cianjur No. 34 Bandung 40195</p>
 						 <p>Telp. (022) 7217451</p>
-				   		<p>Fax: (000) 000 00 00 0</p>
 				 	 	<p>E-mail : distarcip@bandung.go.id</p>
 				   		<p>Ikuti Kami di : <a href="#">Facebook</a>, <a href="#">Twitter</a></p>
 				   	</address>
 				   </div>
 				</div>				
-				<div class="col-md-7">
+				<div class="col-md-8">
 				  <div class="contact-form">
 				  	<h2>Permohonan Ijin</h2>
 					    <form method="post" action="contact-post.html">
 					    	<div>
 						    	<span>Nama Lengkap</span>
-						    	<span><input type="username" class="form-control" id="userName"></span>
+						    	<span><input type="text" class="form-control" id="userName"></span>
 						    </div>
-					    	<div>
-						    	<span>Luas Tanah (dalam meter persegi)</span>
-						    	<span><input type="username" class="form-control" id="userName"></span>
-						    </div>
-						    <div>
-						    	<span>Status Hak</span>
-						    	<span><input type="email" class="form-control" id="inputEmail3"></span>
+						    <div class="row">
+							    <div class="col-md-4">
+							    	<div>
+								    	<span>Luas Tanah (dalam meter persegi)</span>
+								    	<span><input type="number" class="form-control" id="userName"></span>
+								    </div>
+						    	</div>
+							    <div class="col-md-8">
+								    <div>
+								    	<span>Kategori</span>
+								    	<span><input type="email" class="form-control" id="inputEmail3"></span>
+								    </div>						    	
+							    </div>						    							    	
 						    </div>
 						    <div>
 						    	<span>Pemegang Hak</span>
 						    	<span><input type="email" class="form-control" id="inputEmail3"></span>
 						    </div>
 						    <div>
-						    	<span>Kategori</span>
+						    	<span>Status Hak</span>
 						    	<span><input type="email" class="form-control" id="inputEmail3"></span>
 						    </div>
 						    <div>

@@ -40,7 +40,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="" class="img-responsive"/> </a>
+		      <a class="navbar-brand" href="home"><img src="images/logo.png" alt=""></a>
 		    </div>
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -51,12 +51,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		        <li><a href="about.html">Menu2</a></li>
 		        <li><a href="contact.html">Menu3</a></li>
 		      </ul>
-		      <form class="navbar-form navbar-right" role="search">
-		        <div class="form-group my_search">
-		          <input type="text" class="form-control" placeholder="Search">
-		        </div>
-		        <button type="submit" class="btn btn-default">Search</button>
-		      </form>
+		      <div class="navbar-form navbar-right" role="search">
+		        <a href="#"><button class="btn btn-default">Login</button></a>
+		      </div>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
@@ -65,7 +62,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="col-md-8">
 					<div class="col-md-10 slider_text">
 						<h2>Mau mendirikan bangunan?</h2>
-						<h3>Ijin kesini, sayang :*</h3>
+						<h3>Ijin ke akang dulu, sayang :*</h3>
 					</div>
 				</div>
 				<div class="col-md-4">
@@ -83,32 +80,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="container">
 		<div class="row  footer">
 			<div class="col-md-3 span1_of_4">
-				<h4>about us</h4>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry .....</p>
-				<h5>Address</h5>
-				<p class="top">500 Lorem Ipsum Dolor Sit,</p>
-				<p>22-56-2-9 Sit Amet,</p>
-				<p>USA</p>
-				<p>Phone:(00) 222 666 444</p>
-				<p>Fax: (000) 000 00 00 0</p>
+				<h4>Tentang Kami</h4>
+				<p>Dinas Tata Ruang Kota Bandung</p>
+				<h5>Alamat</h5>
+				<p class="top">Jl.Cianjur No. 34 40195</p>
+				<p>Bandung</p>
+				<p>Telp. (022) 7217451</p>
 			</div>
 			<div class="col-md-3 span1_of_4">
-				<h4>latest posts</h4>
+				<h4>Permohonan Masuk</h4>
 				<span><a href="#"> Fusce scelerisque massa vitae </a></span>
-				<p>25 april 2013</p>
+				<p>25 April 2013</p>
 				<span><a href="#">Pellentesque bibendum ante </a></span>
-				<p>15 march 2013</p>
+				<p>15 March 2013</p>
 				<span><a href="#">Maecenas quis ipsum sed magna </a></span>
-				<p>25 april 2013</p>
+				<p>25 April 2013</p>
 			</div>
 			<div class="col-md-3 span1_of_4">
-				<h4>latest comments</h4>
+				<h4>Permohonan Diterima</h4>
 				<span><a href="#">It is a long established fact that a reader will looking layout.</a></span>
 				<span><a href="#">There are many variations of passages of Lorem Ipsum available words.</a></span>
 				<span><a href="#">It is a long established fact that a reader will looking layout.</a></span>
 			</div>
 			<div class="col-md-3 span1_of_4">
-				<h4>photostream</h4>
+<!-- 				<h4>photostream</h4>
 				<ul class="f_nav list-unstyled">
 					<li><a href="#"><img src="images/f_pic1.jpg" alt="" class="img-responsive"/></a></li>
 					<li><a href="#"><img src="images/f_pic3.jpg" alt="" class="img-responsive"/> </a></li>
@@ -120,7 +115,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<li><a href="#"><img src="images/f_pic8.jpg" alt="" class="img-responsive"/> </a></li>
 					<li><a href="#"><img src="images/f_pic2.jpg" alt="" class="img-responsive"/> </a></li>
 				</ul>
-			</div>
+ -->			</div>
 			<div class="clearfix"></div>
 		</div>
 	</div>

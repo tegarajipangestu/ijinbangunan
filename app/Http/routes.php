@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/', 'PageController@home');
-Route::get('ajukanijin', 'PageController@ajukanijin');
+//Route::get('/', 'PageController@home');
+//Route::get('ajukanijin', 'PageController@ajukanijin');
+
 
 //Route::get('home', 'HomeController@index');
 
@@ -20,3 +21,18 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::get('/', function()
+{
+    return view('home');
+});
+
+Route::get('home', function()
+{
+    return view('home');
+});
+
+Route::get('ajukanijin', function()
+{
+    return view('ajukanijin');
+});
