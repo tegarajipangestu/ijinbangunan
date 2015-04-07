@@ -63,10 +63,10 @@
 						    	<span>Pemegang Hak</span>
 						    	<span><input type="text" class="form-control" name="pemeganghak" required></span>
 						    </div>
-						    <div>
+<!-- 						    <div>
 						    	<span>Status Hak</span>
 						    	<span><input type="text" class="form-control" name="statushak" required></span>
-						    </div>
+						    </div> -->
 						    <div>
 						    	<span>Alamat Lokasi</span>
 						    	<span><input type="text" class="form-control" name="lokasi" required></span>

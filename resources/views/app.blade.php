@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Aplikasi ijin mendirikan bangunan</title>
+<title>IjinBangunan | Portal Permohonan IMB</title>
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
@@ -45,11 +45,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="menu nav navbar-nav ">
+		      	@if($currentpage=='home')
 		        <li class="active"><a href="home">Beranda</a></li>
+		        @else
+		        <li><a href="home">Beranda</a></li>
+		        @endif
+		      	@if($currentpage=='ajukanijin' || $currentpage=='retribusi')
+		        <li class="active"><a href="ajukanijin">Ajukan ijin</a></li>
+		        @else
 		        <li><a href="ajukanijin">Ajukan ijin</a></li>
-		        <li><a href="showijin">Daftar Ijin</a></li>
-		        <li><a href="about.html">Menu2</a></li>
-		        <li><a href="contact.html">Menu3</a></li>
+		        @endif
+		      	@if($currentpage=='showijin')
+		        <li class="active"><a href="showijin">Daftar ijin</a></li>
+		        @else
+		        <li><a href="showijin">Daftar ijin</a></li>
+		        @endif
+		      	@if($currentpage=='keluhan')
+		        <li class="active"><a href="keluhan">Keluhan</a></li>
+		        @else
+		        <li><a href="keluhan">Keluhan</a></li>
+		        @endif
+		        <li><a href="#">Tentang Kami</a></li>
 		      </ul>
 		      <div class="navbar-form navbar-right" role="search">
 		        <a href="#"><button class="btn btn-default">Login</button></a>

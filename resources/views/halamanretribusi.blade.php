@@ -26,7 +26,10 @@
 				  <div class="contact-form">
 				  	<h2>Total Retribusi yang dibayarkan</h2>
 				  	<h3>Total retribusi yang harus dibayarkan sejumlah Rp100.000,00</h3>
-				    </div>
+				  	<p>Silahkan kirim retribusi anda di :</p>
+				  	<p>Rekening Bank Ardi : 123-456-789 a.n Dinas Tata Ruang Kota Bandung</p>
+				  </div>
+				  <a href="showijin"><button class="button-huba">Kembali ke Daftar Ijin</button></a>	
   				</div>		
   				<div class="clearfix"></div>		
 		  </div> <!-- end contact -->

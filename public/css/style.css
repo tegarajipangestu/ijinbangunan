@@ -9,6 +9,37 @@ body {
 	background:#ffffff;
 	font-size: 100%;
 }
+p
+{
+	font-size: 14px;
+}
+.button-huba {
+	margin-top:20px;
+	font-family: 'Open Sans', 'sans-serif';
+	font-size: 14px;
+	-webkit-appearance: none;
+	float: right;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	display: inline-block;
+	padding: 12px 30px;
+	color: #ffffff;
+	background: #F15F43;
+	text-transform: uppercase;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.button-huba:hover{
+	background: #354B77;
+}
+
 .wrap{
 	margin:0 auto;
 	width:80%;
@@ -243,6 +274,10 @@ body {
 }
 .span1_of_4 p.top{
 	margin-top: 4%;
+}
+input
+{
+	font-size: 14px;
 }
 .span1_of_4 span a{
 	border-bottom: 1px dashed rgb(235, 233, 233);
@@ -594,8 +629,9 @@ body {
 	background: #ffffff;
 	outline: none;
 	color: #c0c0c0;
-	font-size: 0.8725em;
-	border: 1px solid #ECECEC;
+	font-size: 12px;
+	color:#000000;
+	border: 1px solid #000000;
 	-webkit-appearance: none;
 	resize: none;
 	height: 120px;

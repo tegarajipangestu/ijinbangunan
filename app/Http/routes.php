@@ -1,4 +1,6 @@
 <?php
+use App\Keluhan;
+use App\Permohonan;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,25 +31,41 @@ Route::get('/', function()
 
 Route::get('home', function()
 {
-    return view('home');
+	$currentpage = 'home';
+    return view('home',compact('currentpage'));
 });
 
 Route::get('ajukanijin', function()
 {
-    return view('ajukanijin');
+	$currentpage = 'ajukanijin';
+    return view('ajukanijin',compact('currentpage'));
 });
+
+Route::get('keluhan', function()
+{
+	$keluhans = Keluhan::all();
+	$currentpage = 'keluhan';
+    return view('keluhan',compact('keluhans','currentpage'));
+});
+
 
 Route::get('showijin', function()
 {
-    return view('showijin');
+	$permohonans = DB::table('permohonans')
+	            ->join('bangunans', 'permohonans.bangunan_nomor', '=', 'bangunans.nomor')
+	            ->get();
+	$currentpage = 'showijin';
+    return view('showijin',compact('permohonans','currentpage'));
 });
 
 Route::get('retribusi', function()
 {
-    return view('halamanretribusi');
+	$currentpage = 'retribusi';
+    return view('halamanretribusi',compact('currentpage'));
 });
 
 Route::post('permohonan', 'PermohonanController@store');
+Route::post('keluhan', 'KeluhanController@store');
 
 Route::any('form-submit', function(){
 	return view('FormIzin.formBerkas');

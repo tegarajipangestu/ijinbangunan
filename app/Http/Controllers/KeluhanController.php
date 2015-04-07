@@ -1,17 +1,16 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Bangunan;
-use App\Permohonan;
-use App\Berkas;
-
-
+use App\Keluhan;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 //use Illuminate\Http\Request;
+
 use Request;
 
-class PermohonanController extends Controller {
+
+class KeluhanController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -41,28 +40,11 @@ class PermohonanController extends Controller {
 	public function store()
 	{
 		$input = Request::all();
+		$input['tanggal'] = Carbon::now();
 //		dd($input);
-		$bangunan = new Bangunan;
-		$bangunan->jenis = $input['jenis'];
-		$bangunan->lokasi = $input['lokasi'];
-		$bangunan->kategori = $input['kategori'];
-		$bangunan->luas = $input['luas'];
-		$bangunan->save();
-		$berkas = new Berkas;
-		$berkas->kategori = "Denah";
-		$berkas->lokasifile = $input['file'];		
-		$berkas->save();
-		$permohonan = new Permohonan;
-		$permohonan->username = $input['username'];
-		$permohonan->pemeganghak = $input['pemeganghak'];
-		$permohonan->statushak = 'Diproses';
-		$bangunantemp = Bangunan::where('lokasi' , $bangunan->lokasi)->first();
-		$berkastemp = Berkas::where('lokasifile' , $berkas->lokasifile)->first();
-//		$bangunantemp = Bangunan::findOrFail($bangunan->lokasi);
-		$permohonan->bangunan_nomor = $bangunantemp['nomor'];
-		$permohonan->berkas_id_ajuan = $berkastemp['id_ajuan'];
-		$permohonan->save();
-		return redirect('retribusi');
+		Keluhan::create($input);
+		return redirect('keluhan');
+
 	}
 
 	/**
