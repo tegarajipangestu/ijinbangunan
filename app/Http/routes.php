@@ -193,8 +193,8 @@ Route::get('keluhan', function()
 
 Route::get('showijin', function()
 {
-	$permohonans = DB::table('permohonans')
-	            ->join('bangunans', 'permohonans.bangunan_nomor', '=', 'bangunans.nomor')
+	$permohonans = DB::table('ppl_imb_permohonans')
+	            ->join('ppl_imb_bangunans', 'ppl_imb_permohonans.bangunan_nomor', '=', 'ppl_imb_bangunans.nomor')
 	            ->get();
 	$currentpage = 'showijin';
     return view('showijin',compact('permohonans','currentpage'));
