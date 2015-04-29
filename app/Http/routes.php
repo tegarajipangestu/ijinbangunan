@@ -1,6 +1,8 @@
 <?php
 use App\Keluhan;
 use App\Permohonan;
+use App\Kecamatan;
+use App\Peruntukan;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,19 +28,159 @@ Route::controllers([
 
 Route::get('/', function()
 {
-    return view('home');
+	if(!isset($_COOKIE["username"])) {
+		return redirect('login');	
+	} else {
+		// echo $_COOKIE[$cookie_name];
+		$currentpage = 'home';
+	    return view('home',compact('currentpage'));
+	}
+});
+
+Route::get('login', function()
+{
+	if(!isset($_COOKIE["username"])) {
+		$currentpage = 'login';
+	    return view('login',compact('currentpage'));
+	} else {
+		// echo $_COOKIE[$cookie_name];
+		return redirect('home');	
+	}
+});
+
+Route::get('logout', function()
+{
+	unset($_COOKIE['username']);
+    unset($_COOKIE['role']);
+    setcookie('username', null, -1, '/');
+    setcookie('role', null, -1, '/');
+	return redirect ('login');
+});
+
+Route::post('login', function()
+{
+	$input = Request::all();
+	// dd($input);
+	if ($input['username']=='3576011309930005')
+	{
+		if ($input['password']=='ardi')
+		{
+        	$currentpage = 'home';	
+        	// $username = $user[0]->nama_pengajar;
+			$cookie_name = "username";
+			$cookie_value = 'Tegar Aji Pangestu';
+			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+			$cookie_name = "password";
+			$cookie_value = $input['password'];
+			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+			return redirect('home');
+		}	
+	}
+	else if ($input['username']=='357601280420150005')
+	{
+		if ($input['password']=='ardi')
+		{
+        	$currentpage = 'home';	
+        	// $username = $user[0]->nama_pengajar;
+			$cookie_name = "username";
+			$cookie_value = 'Yanfa Adi Putra';
+			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+			$cookie_name = "password";
+			$cookie_value = $input['password'];
+			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+			return redirect('home');
+		}	
+	}
+	else if ($input['username']=='admin')
+	{
+		if ($input['password']=='admin')
+		{
+        	// $currentpage = 'home';	
+        	// $username = $user[0]->nama_pengajar;
+			$cookie_name = "username";
+			$cookie_value = $input['password'];
+			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+			$cookie_name = "password";
+			$cookie_value = $input['password'];
+			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+			$currentpage = 'admin';
+			return redirect('homeadmin');
+		    // return redirect('admin');
+		}	
+	}
+	$currentpage = 'login';
+    return view('login',compact('currentpage'));
+});
+
+Route::get('homeadmin', function()
+{
+	$currentpage = 'admin';
+    return view('admin/home',compact('currentpage'));
+});
+
+Route::get('terimaijin', function($id)
+{
+	$currentpage = 'admin';
+    return view('admin/home',compact('currentpage'));
+});
+
+Route::get('unggahretribusi', function()
+{
+	$currentpage = 'unggah retribusi';
+    return view('unggahretribusi',compact('currentpage'));
+});
+
+Route::get('unggahberkas', function()
+{
+	$currentpage = 'ajukanijin';
+    return view('unggahberkas',compact('currentpage'));
 });
 
 Route::get('home', function()
-{
+{	
 	$currentpage = 'home';
     return view('home',compact('currentpage'));
 });
 
 Route::get('ajukanijin', function()
 {
-	$currentpage = 'ajukanijin';
-    return view('ajukanijin',compact('currentpage'));
+	if(!isset($_COOKIE["username"])) {
+		return redirect('login');	
+	} else {
+		// echo $_COOKIE[$cookie_name];
+		$peruntukans = Peruntukan::all();
+		$kecamatans = Kecamatan::all();
+		$currentpage = 'ajukanijin';
+	    return view('ajukanijin',compact('currentpage','kecamatans','peruntukans'));
+	}
+});
+
+
+Route::get('peruntukanlahan/{id}', function($id)
+{
+		$peruntukanlahan = DB::table('peruntukkan')
+            ->join('peruntukkan_lahan', 'peruntukkan_lahan.id_peruntukkan', '=', 'peruntukkan.id_peruntukkan')
+            ->join('kecamatan', 'peruntukkan_lahan.id_kecamatan', '=', 'Kecamatan.id_kecamatan')
+            ->where('Kecamatan.nama_kecamatan','=',$id)
+            ->get();
+//		$pengajar = Pengajar::where('id_pengajar' , '=', $id)->first();;
+		return $peruntukanlahan;
+});
+
+Route::get('terimaijin/{id}', function($id)
+{
+	DB::table('permohonans')
+	            ->where('permohonan_nomor', $id)
+	            ->update(array('statushak' => 'Diterima'));
+	            return redirect('admintable');
+});
+
+Route::get('tolakijin/{id}', function($id)
+{
+	DB::table('permohonans')
+	            ->where('permohonan_nomor', $id)
+	            ->update(array('statushak' => 'Ditolak'));
+	            return redirect('admintable');
 });
 
 Route::get('keluhan', function()
@@ -58,6 +200,16 @@ Route::get('showijin', function()
     return view('showijin',compact('permohonans','currentpage'));
 });
 
+Route::get('myijin', function()
+{
+	$permohonans = DB::table('permohonans')
+	            ->join('bangunans', 'permohonans.bangunan_nomor', '=', 'bangunans.nomor')
+	            ->where('username',$_COOKIE["username"])
+	            ->get();
+	$currentpage = 'myijin';
+    return view('ijinsaya',compact('permohonans','currentpage'));
+});
+
 Route::get('retribusi', function()
 {
 	$currentpage = 'retribusi';
@@ -67,7 +219,118 @@ Route::get('retribusi', function()
 Route::post('permohonan', 'PermohonanController@store');
 Route::post('keluhan', 'KeluhanController@store');
 
-Route::any('form-submit', function(){
+Route::post('unggahberkas', function(){
+ //    $input = Input::file('buktitanah');
+	// // echo $input;
+	// if (Input::hasFile('buktitanah'))
+	// {
+	//     $input = Input::file('buktitanah');
+	// 	$input->move(substr(__DIR__,0,strlen(__DIR__) - 25).'\berkasIzin\\',$input->getClientOriginalName());
+	// 	echo $input;
+	// }
 	return view('FormIzin.formBerkas');
 });
+
+Route::get('printlaporan/{id}', function($id)
+{
+	$permohonans = DB::table('permohonans')
+    ->join('bangunans', 'permohonans.bangunan_nomor', '=', 'bangunans.nomor')
+    ->where('permohonans.permohonan_nomor','=',$id)
+    ->get();
+//    dd($permohonans);
+	return view('printlaporan.printlaporan',compact('permohonans'));
+});
+
+//Route::get('printlaporan/{$id}', function($id){
+ //    $input = Input::file('buktitanah');
+	// // echo $input;
+	// if (Input::hasFile('buktitanah'))
+	// {
+	//     $input = Input::file('buktitanah');
+	// 	$input->move(substr(__DIR__,0,strlen(__DIR__) - 25).'\berkasIzin\\',$input->getClientOriginalName());
+	// 	echo $input;
+	// }
+	// return "Huba";
+	// $permohonans = DB::table('permohonans')
+ //    ->join('bangunans', 'permohonans.bangunan_nomor', '=', 'bangunans.nomor')
+ //    ->where('permohonans.permohonan_nomor','=',$id)
+ //    ->get();
+ //    dd($permohonans);
+	// return view('printlaporan.printlaporan',compact('permohonans'));
+//});
+
+Route::get('admintable', function()
+	{
+		$permohonans = DB::table('permohonans')
+            ->join('bangunans', 'permohonans.bangunan_nomor', '=', 'bangunans.nomor')
+            ->get();
+		$currentpage = 'table';
+		// dd($permohonans);
+		return view('admin.table',compact('currentpage','permohonans'));
+	});
+Route::get('admincalendar', function()
+	{
+		$currentpage = 'calendar';
+		return view('admin.calendar',compact('currentpage'));
+	});
+Route::get('adminchart', function()
+	{
+		$currentpage = 'chart';
+		return view('admin.chart',compact('currentpage'));
+	});
+Route::get('adminfile-manager', function()
+	{
+		$currentpage = 'file-manager';
+		return view('admin.file-manager',compact('currentpage'));
+	});
+Route::get('adminform', function()
+	{
+		$currentpage = 'form';
+		return view('admin.form',compact('currentpage'));
+	});
+Route::get('admingallery', function()
+	{
+		$currentpage = 'gallery';
+		return view('admin.gallery',compact('currentpage'));
+	});
+Route::get('adminicon', function()
+	{
+		$currentpage = 'icon';
+		return view('admin.icon',compact('currentpage'));
+	});
+Route::get('adminlogin', function()
+	{
+		$currentpage = 'login';
+		return view('admin.login',compact('currentpage'));
+	});
+Route::get('adminmessages', function()
+	{
+		$currentpage = 'messages';
+		return view('admin.messages',compact('currentpage'));
+	});
+Route::get('adminsubmenu', function()
+	{
+		$currentpage = 'submenu';
+		return view('admin.submenu',compact('currentpage'));
+	});
+Route::get('admintasks', function()
+	{
+		$currentpage = 'tasks';
+		return view('admin.tasks',compact('currentpage'));
+	});
+Route::get('admintypography', function()
+	{
+		$currentpage = 'typography';
+		return view('admin.typography',compact('currentpage'));
+	});
+Route::get('adminui', function()
+	{
+		$currentpage = 'ui';
+		return view('admin.ui',compact('currentpage'));
+	});
+Route::get('adminwidgets', function()
+	{
+		$currentpage = 'widgets';
+		return view('admin.widgets',compact('currentpage'));
+	});
 

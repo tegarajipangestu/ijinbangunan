@@ -50,19 +50,20 @@ class PermohonanController extends Controller {
 		$bangunan->save();
 		$berkas = new Berkas;
 		$berkas->kategori = "Denah";
-		$berkas->lokasifile = $input['file'];		
+		// $berkas->lokasifile = $input['file'];		
 		$berkas->save();
 		$permohonan = new Permohonan;
 		$permohonan->username = $input['username'];
 		$permohonan->pemeganghak = $input['pemeganghak'];
 		$permohonan->statushak = 'Diproses';
 		$bangunantemp = Bangunan::where('lokasi' , $bangunan->lokasi)->first();
-		$berkastemp = Berkas::where('lokasifile' , $berkas->lokasifile)->first();
+		// $berkastemp = Berkas::where('lokasifile' , $berkas->lokasifile)->first();
 //		$bangunantemp = Bangunan::findOrFail($bangunan->lokasi);
 		$permohonan->bangunan_nomor = $bangunantemp['nomor'];
-		$permohonan->berkas_id_ajuan = $berkastemp['id_ajuan'];
+		$permohonan->berkas_id_ajuan = 1;
 		$permohonan->save();
-		return redirect('retribusi');
+		setcookie('bangunan',$bangunan->jenis, time() + (86400 * 30), "/"); // 86400 = 1 day
+		return redirect('unggahberkas');
 	}
 
 	/**

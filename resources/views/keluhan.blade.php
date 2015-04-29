@@ -12,7 +12,7 @@
 							<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">							
 							<div>
 						    	<span>Nama</span>
-						    	<input type="text" class="form-control" name="nama" required>
+						    	<input type="text" class="form-control" name="nama" value="<?php echo $_COOKIE["username"] ?>" required>
 						    </div>
 						    <div>
 						    	<span>E-mail</span>
@@ -20,7 +20,7 @@
 						    </div>
 						    <div>
 						    	<span>Isi Keluhan</span>
-						    	<textarea class="form-control" name="isikeluhan"></textarea>
+						    	<textarea class="form-control" name="isikeluhan" required></textarea>
 						    </div>
 						   <div>
 						   		<span><input type="submit" value="Kirim Keluhan"></span>

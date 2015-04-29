@@ -55,6 +55,13 @@ p
 .breadcrumb > .active {
 	color: #A8B8D8;
 }
+.unggah-box
+{
+	border:3px solid #354B77;
+	padding:1em;
+	margin:0.2em;
+}
+
 .breadcrumb li,.breadcrumb li a{
 	font-size: 14px;
 	color: #ffffff;
@@ -852,6 +859,11 @@ input
 	.span1_of_4 span{
 		margin: 10px 0;
 	}
+}
+.unggah-box span
+{
+	color:#0F0F0F;
+	font-size: 18px;
 }
 
 

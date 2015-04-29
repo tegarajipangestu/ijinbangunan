@@ -23,8 +23,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- start plugins -->
 <script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src='admin/js/jquery.dataTables.min.js'></script>
 </head>
 <body>
 <div class="header_bg"><!-- start header -->
@@ -45,7 +45,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="menu nav navbar-nav ">
-		      	@if($currentpage=='home')
+		      	@if($currentpage=='home' || $currentpage=='login')
 		        <li class="active"><a href="home">Beranda</a></li>
 		        @else
 		        <li><a href="home">Beranda</a></li>
@@ -65,10 +65,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		        @else
 		        <li><a href="keluhan">Keluhan</a></li>
 		        @endif
-		        <li><a href="#">Tentang Kami</a></li>
+		      	@if($currentpage=='myijin')
+		        <li class="active"><a href="myijin">Permohonan Saya</a></li>
+		        @else
+		        <li><a href="myijin">Permohonan Saya</a></li>
+		        @endif
 		      </ul>
 		      <div class="navbar-form navbar-right" role="search">
-		        <a href="#"><button class="btn btn-default">Login</button></a>
+		        <a href=<?php	if(!isset($_COOKIE["username"])) {echo "\"login\"";
+				} else {
+					echo "\"logout\"";
+				}?>><button class="btn btn-default"><?php	if(!isset($_COOKIE["username"])) {echo "Login";
+				} else {
+					echo "Logout";
+				}?></button></a>
 		      </div>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
@@ -77,6 +87,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="row slider text-center">
 			<div class="col-md-8">
 					<div class="col-md-10 slider_text">
+						<h3>Sampurasun 
+							<?php	if(!isset($_COOKIE["username"])) {echo "Warga Bandung";
+								} else {
+									echo $_COOKIE["username"];
+								}?>
+							!</h3>
 						<h2>Mau mendirikan bangunan?</h2>
 						<h3>Ijin ke akang dulu, sayang :*</h3>
 					</div>
@@ -105,18 +121,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 			<div class="col-md-3 span1_of_4">
 				<h4>Permohonan Masuk</h4>
-				<span><a href="#"> Fusce scelerisque massa vitae </a></span>
+				<span><a href="#"> Rumah Sakit - Jalan Ganeyssia no 50 Kota Bandung </a></span>
 				<p>25 April 2013</p>
-				<span><a href="#">Pellentesque bibendum ante </a></span>
-				<p>15 March 2013</p>
-				<span><a href="#">Maecenas quis ipsum sed magna </a></span>
+				<span><a href="#"> Toko/Ruko - Jalan Ganeyssia no 12 Kota Bandung </a></span>
+				<p>25 April 2013</p>
+				<span><a href="#"> Panti Asuhan - Jalan Ganeyssia no 32 Kota Bandung </a></span>
 				<p>25 April 2013</p>
 			</div>
 			<div class="col-md-3 span1_of_4">
 				<h4>Permohonan Diterima</h4>
-				<span><a href="#">It is a long established fact that a reader will looking layout.</a></span>
-				<span><a href="#">There are many variations of passages of Lorem Ipsum available words.</a></span>
-				<span><a href="#">It is a long established fact that a reader will looking layout.</a></span>
+				<span><a href="#"> Pendidikan - Jalan Ganeyssia no 10 Kota Bandung </a></span>
+				<p>25 April 2013</p>
 			</div>
 			<div class="col-md-3 span1_of_4">
 <!-- 				<h4>photostream</h4>
