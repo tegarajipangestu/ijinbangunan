@@ -202,12 +202,17 @@ Route::get('showijin', function()
 
 Route::get('myijin', function()
 {
-	$permohonans = DB::table('permohonans')
-	            ->join('bangunans', 'permohonans.bangunan_nomor', '=', 'bangunans.nomor')
-	            ->where('username',$_COOKIE["username"])
-	            ->get();
-	$currentpage = 'myijin';
-    return view('ijinsaya',compact('permohonans','currentpage'));
+	if(!isset($_COOKIE["username"])) {
+		return redirect('login');	
+	} else {
+		$permohonans = DB::table('permohonans')
+		            ->join('bangunans', 'permohonans.bangunan_nomor', '=', 'bangunans.nomor')
+		            ->where('username',$_COOKIE["username"])
+		            ->get();
+		$currentpage = 'myijin';
+	    return view('ijinsaya',compact('permohonans','currentpage'));		
+}
+
 });
 
 Route::get('retribusi', function()
