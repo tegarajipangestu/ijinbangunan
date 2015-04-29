@@ -207,7 +207,7 @@ Route::get('myijin', function()
 	} else {
 		$permohonans = DB::table('ppl_imb_permohonans')
 		            ->join('ppl_imb_bangunans', 'ppl_imb_permohonans.bangunan_nomor', '=', 'ppl_imb_bangunans.nomor')
-		            ->where('ppl_imb_username',$_COOKIE["username"])
+		            ->where('username',$_COOKIE["username"])
 		            ->get();
 		$currentpage = 'myijin';
 	    return view('ijinsaya',compact('permohonans','currentpage'));		
