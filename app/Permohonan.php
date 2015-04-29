@@ -9,7 +9,7 @@ class Permohonan extends Model {
 	 *
 	 * @var string
 	 */
-	protected $table = 'permohonans';
+	protected $table = 'ppl_imb_permohonans';
 
 	/**
 	 * The attributes that are mass assignable.

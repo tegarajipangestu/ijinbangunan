@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Kecamatan extends Model {
 
 	//
-	protected $table = 'kecamatan';
+	protected $table = 'ppl_imb_kecamatan';
 
 	/**
 	 * The attributes that are mass assignable.

@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Peruntukan extends Model {
 
 	//
-	protected $table = 'peruntukkan';
+	protected $table = 'ppl_imb_peruntukkan';
 
 	/**
 	 * The attributes that are mass assignable.

@@ -9,7 +9,7 @@ class Bangunan extends Model {
 	 *
 	 * @var string
 	 */
-	protected $table = 'bangunans';
+	protected $table = 'ppl_imb_bangunans';
 
 	/**
 	 * The attributes that are mass assignable.

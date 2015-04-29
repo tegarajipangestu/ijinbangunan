@@ -158,10 +158,10 @@ Route::get('ajukanijin', function()
 
 Route::get('peruntukanlahan/{id}', function($id)
 {
-		$peruntukanlahan = DB::table('peruntukkan')
-            ->join('peruntukkan_lahan', 'peruntukkan_lahan.id_peruntukkan', '=', 'peruntukkan.id_peruntukkan')
-            ->join('kecamatan', 'peruntukkan_lahan.id_kecamatan', '=', 'Kecamatan.id_kecamatan')
-            ->where('Kecamatan.nama_kecamatan','=',$id)
+		$peruntukanlahan = DB::table('ppl_imb_peruntukkan')
+            ->join('ppl_imb_peruntukkan_lahan', 'ppl_imb_peruntukkan_lahan.id_peruntukkan', '=', 'ppl_imb_peruntukkan.id_peruntukkan')
+            ->join('ppl_imb_kecamatan', 'ppl_imb_peruntukkan_lahan.id_kecamatan', '=', 'ppl_imb_kecamatan.id_kecamatan')
+            ->where('ppl_imb_kecamatan.nama_kecamatan','=',$id)
             ->get();
 //		$pengajar = Pengajar::where('id_pengajar' , '=', $id)->first();;
 		return $peruntukanlahan;
@@ -233,9 +233,9 @@ Route::post('unggahberkas', function(){
 
 Route::get('printlaporan/{id}', function($id)
 {
-	$permohonans = DB::table('permohonans')
-    ->join('bangunans', 'permohonans.bangunan_nomor', '=', 'bangunans.nomor')
-    ->where('permohonans.permohonan_nomor','=',$id)
+	$permohonans = DB::table('ppl_imb_permohonans')
+    ->join('ppl_imb_bangunans', 'ppl_imb_permohonans.bangunan_nomor', '=', 'ppl_imb_bangunans.nomor')
+    ->where('ppl_imb_permohonans.permohonan_nomor','=',$id)
     ->get();
 //    dd($permohonans);
 	return view('printlaporan.printlaporan',compact('permohonans'));
@@ -261,8 +261,8 @@ Route::get('printlaporan/{id}', function($id)
 
 Route::get('admintable', function()
 	{
-		$permohonans = DB::table('permohonans')
-            ->join('bangunans', 'permohonans.bangunan_nomor', '=', 'bangunans.nomor')
+		$permohonans = DB::table('ppl_imb_permohonans')
+            ->join('ppl_imb_bangunans', 'ppl_imb_permohonans.bangunan_nomor', '=', 'ppl_imb_bangunans.nomor')
             ->get();
 		$currentpage = 'table';
 		// dd($permohonans);

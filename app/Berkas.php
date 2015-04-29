@@ -9,7 +9,7 @@ class Berkas extends Model {
 	 *
 	 * @var string
 	 */
-	protected $table = 'berkas';
+	protected $table = 'ppl_imb_berkas';
 
 	/**
 	 * The attributes that are mass assignable.

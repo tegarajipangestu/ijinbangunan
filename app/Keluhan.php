@@ -9,7 +9,7 @@ class Keluhan extends Model {
 	 *
 	 * @var string
 	 */
-	protected $table = 'keluhans';
+	protected $table = 'ppl_imb_keluhans';
 
 	/**
 	 * The attributes that are mass assignable.
