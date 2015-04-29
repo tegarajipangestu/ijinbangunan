@@ -169,17 +169,17 @@ Route::get('peruntukanlahan/{id}', function($id)
 
 Route::get('terimaijin/{id}', function($id)
 {
-	DB::table('permohonans')
-	            ->where('permohonan_nomor', $id)
-	            ->update(array('statushak' => 'Diterima'));
+	DB::table('ppl_imb_permohonans')
+	            ->where('ppl_imb_permohonan_nomor', $id)
+	            ->update(array('ppl_imb_statushak' => 'Diterima'));
 	            return redirect('admintable');
 });
 
 Route::get('tolakijin/{id}', function($id)
 {
-	DB::table('permohonans')
-	            ->where('permohonan_nomor', $id)
-	            ->update(array('statushak' => 'Ditolak'));
+	DB::table('ppl_imb_permohonans')
+	            ->where('ppl_imb_permohonan_nomor', $id)
+	            ->update(array('ppl_imb_statushak' => 'Ditolak'));
 	            return redirect('admintable');
 });
 
@@ -205,9 +205,9 @@ Route::get('myijin', function()
 	if(!isset($_COOKIE["username"])) {
 		return redirect('login');	
 	} else {
-		$permohonans = DB::table('permohonans')
-		            ->join('bangunans', 'permohonans.bangunan_nomor', '=', 'bangunans.nomor')
-		            ->where('username',$_COOKIE["username"])
+		$permohonans = DB::table('ppl_imb_permohonans')
+		            ->join('ppl_imb_bangunans', 'ppl_imb_permohonans.bangunan_nomor', '=', 'ppl_imb_bangunans.nomor')
+		            ->where('ppl_imb_username',$_COOKIE["username"])
 		            ->get();
 		$currentpage = 'myijin';
 	    return view('ijinsaya',compact('permohonans','currentpage'));		
