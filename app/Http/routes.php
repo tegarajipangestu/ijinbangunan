@@ -20,11 +20,11 @@ use App\Peruntukan;
 
 
 //Route::get('home', 'HomeController@index');
-Route::get('/', 'HomeController@check');
-Route::get('/home', 'HomeController@index');
+// Route::get('/', 'HomeController@check');
+// Route::get('/home', 'HomeController@index');
 
-Route::post('/login', 'HomeController@validateLogin');
-Route::get('logout', 'HomeController@logout');
+// Route::post('/login', 'HomeController@validateLogin');
+// Route::get('logout', 'HomeController@logout');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -62,60 +62,60 @@ Route::get('logout', function()
 	return redirect ('login');
 });
 
-// Route::post('login', function()
-// {
-// 	$input = Request::all();
-// 	// dd($input);
-// 	if ($input['username']=='3576011309930005')
-// 	{
-// 		if ($input['password']=='ardi')
-// 		{
-//         	$currentpage = 'home';	
-//         	// $username = $user[0]->nama_pengajar;
-// 			$cookie_name = "username";
-// 			$cookie_value = 'Tegar Aji Pangestu';
-// 			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-// 			$cookie_name = "password";
-// 			$cookie_value = $input['password'];
-// 			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-// 			return redirect('home');
-// 		}	
-// 	}
-// 	else if ($input['username']=='357601280420150005')
-// 	{
-// 		if ($input['password']=='ardi')
-// 		{
-//         	$currentpage = 'home';	
-//         	// $username = $user[0]->nama_pengajar;
-// 			$cookie_name = "username";
-// 			$cookie_value = 'Yanfa Adi Putra';
-// 			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-// 			$cookie_name = "password";
-// 			$cookie_value = $input['password'];
-// 			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-// 			return redirect('home');
-// 		}	
-// 	}
-// 	else if ($input['username']=='admin')
-// 	{
-// 		if ($input['password']=='admin')
-// 		{
-//         	// $currentpage = 'home';	
-//         	// $username = $user[0]->nama_pengajar;
-// 			$cookie_name = "username";
-// 			$cookie_value = $input['password'];
-// 			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-// 			$cookie_name = "password";
-// 			$cookie_value = $input['password'];
-// 			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-// 			$currentpage = 'admin';
-// 			return redirect('homeadmin');
-// 		    // return redirect('admin');
-// 		}	
-// 	}
-// 	$currentpage = 'login';
-//     return view('login',compact('currentpage'));
-// });
+Route::post('login', function()
+{
+	$input = Request::all();
+	// dd($input);
+	if ($input['nik']=='budi')
+	{
+		if ($input['password']=='budi')
+		{
+        	$currentpage = 'home';	
+        	// $username = $user[0]->nama_pengajar;
+			$cookie_name = "username";
+			$cookie_value = 'Tegar Aji Pangestu';
+			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+			$cookie_name = "password";
+			$cookie_value = $input['password'];
+			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+			return redirect('home');
+		}	
+	}
+	else if ($input['nik']=='3576011309930005')
+	{
+		if ($input['nik']=='ardi')
+		{
+        	$currentpage = 'home';	
+        	// $username = $user[0]->nama_pengajar;
+			$cookie_name = "username";
+			$cookie_value = 'Yanfa Adi Putra';
+			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+			$cookie_name = "password";
+			$cookie_value = $input['password'];
+			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+			return redirect('home');
+		}	
+	}
+	else if ($input['nik']=='admin')
+	{
+		if ($input['password']=='admin')
+		{
+        	// $currentpage = 'home';	
+        	// $username = $user[0]->nama_pengajar;
+			$cookie_name = "username";
+			$cookie_value = $input['password'];
+			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+			$cookie_name = "password";
+			$cookie_value = $input['password'];
+			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+			$currentpage = 'admin';
+			return redirect('homeadmin');
+		    // return redirect('admin');
+		}	
+	}
+	$currentpage = 'login';
+    return view('login',compact('currentpage'));
+});
 
 Route::get('homeadmin', function()
 {
