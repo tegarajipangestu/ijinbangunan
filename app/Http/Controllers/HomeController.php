@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Auth;
 class HomeController extends Controller {
 
 	/*
@@ -28,9 +30,26 @@ class HomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $req)
 	{
 		return view('home');
 	}
 
+	public function check() {
+        return view('check');
+    }
+    public function validateLogin(Request $request)
+ 	{
+ 		$r = $request->all();
+        if (Auth::attempt(['nik' => $r['nik'], 'password' => $r['password']])) {
+            // return Auth::user();
+            return redirect('/home');
+        }
+        return redirect('/login');
+ 	}
+ 	public function logout() 
+ 	{
+        Auth::logout();
+		return redirect('/home');
+ 	}
 }
