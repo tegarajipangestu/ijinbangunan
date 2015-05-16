@@ -33,12 +33,14 @@ class HomeController extends Controller {
 	public function index(Request $req)
 	{
 		$currentpage = 'home';
-		return view('home',compact('currentpage'));
+	    return view('home',compact('currentpage'));
 	}
 
 	public function check() {
-        return view('check');
+		$currentpage = 'home';
+        return view('check',compact('currentpage'));
     }
+    
     public function validateLogin(Request $request)
  	{
  		$r = $request->all();
