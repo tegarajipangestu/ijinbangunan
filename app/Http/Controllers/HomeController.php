@@ -46,6 +46,7 @@ class HomeController extends Controller {
  		$r = $request->all();
         if (Auth::attempt(['nik' => $r['nik'], 'password' => $r['password']])) {
             // return Auth::user();
+        	dd('huba');
             return redirect('/home');
         }
         return redirect('/login');

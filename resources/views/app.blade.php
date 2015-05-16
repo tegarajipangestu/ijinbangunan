@@ -45,31 +45,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="menu nav navbar-nav ">
-		      	@if($currentpage=='home' || $currentpage=='login')
+		      	<!-- @if($currentpage=='home' || $currentpage=='login') -->
 		        <li class="active"><a href="home">Beranda</a></li>
-		        @else
+		        <!-- @else -->
 		        <li><a href="home">Beranda</a></li>
-		        @endif
-		      	@if($currentpage=='ajukanijin' || $currentpage=='retribusi')
+		        <!-- @endif -->
+		      	<!-- @if($currentpage=='ajukanijin' || $currentpage=='retribusi') -->
 		        <li class="active"><a href="ajukanijin">Ajukan ijin</a></li>
-		        @else
+		        <!-- @else -->
 		        <li><a href="ajukanijin">Ajukan ijin</a></li>
-		        @endif
-		      	@if($currentpage=='showijin')
+		        <!-- @endif -->
+		      	<!-- @if($currentpage=='showijin') -->
 		        <li class="active"><a href="showijin">Daftar ijin</a></li>
-		        @else
+		        <!-- @else -->
 		        <li><a href="showijin">Daftar ijin</a></li>
-		        @endif
-		      	@if($currentpage=='keluhan')
+		        <!-- @endif -->
+		      	<!-- @if($currentpage=='keluhan') -->
 		        <li class="active"><a href="keluhan">Keluhan</a></li>
-		        @else
+		        <!-- @else -->
 		        <li><a href="keluhan">Keluhan</a></li>
-		        @endif
-		      	@if($currentpage=='myijin')
+		        <!-- @endif -->
+		      	<!-- @if($currentpage=='myijin') -->
 		        <li class="active"><a href="myijin">Permohonan Saya</a></li>
-		        @else
+		        <!-- @else -->
 		        <li><a href="myijin">Permohonan Saya</a></li>
-		        @endif
+		        <!-- @endif -->
 		      </ul>
 		      <div class="navbar-form navbar-right" role="search">
 		        <a href=<?php	if(!isset($_COOKIE["username"])) {echo "\"login\"";
