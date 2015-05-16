@@ -47,13 +47,13 @@ class HomeController extends Controller {
         if (Auth::attempt(['nik' => $r['nik'], 'password' => $r['password']])) {
             // return Auth::user();
         	// dd('huba');
-            return redirect('/home');
+            return redirect('home');
         }
-        return redirect('/login');
+        return redirect('login');
  	}
  	public function logout() 
  	{
         Auth::logout();
-		return redirect('/home');
+		return redirect('login');
  	}
 }

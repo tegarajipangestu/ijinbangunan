@@ -21,11 +21,11 @@ use App\Peruntukan;
 
 //Route::get('home', 'HomeController@index');
 Route::get('/', 'HomeController@check');
-Route::get('/home', 'HomeController@index');
+Route::get('home', 'HomeController@index');
 
-Route::post('/login', 'HomeController@index');
+Route::post('login', 'HomeController@index');
 
-Route::post('/login', 'HomeController@validateLogin');
+Route::post('login', 'HomeController@validateLogin');
 Route::get('logout', 'HomeController@logout');
 
 Route::get('/', function()
