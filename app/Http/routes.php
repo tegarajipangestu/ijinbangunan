@@ -23,6 +23,8 @@ use App\Peruntukan;
 Route::get('/', 'HomeController@check');
 Route::get('/home', 'HomeController@index');
 
+Route::post('/login', 'HomeController@index');
+
 Route::post('/login', 'HomeController@validateLogin');
 Route::get('logout', 'HomeController@logout');
 
