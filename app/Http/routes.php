@@ -73,7 +73,7 @@ Route::post('login', function()
         	$currentpage = 'home';	
         	// $username = $user[0]->nama_pengajar;
 			$cookie_name = "username";
-			$cookie_value = 'Tegar Aji Pangestu';
+			$cookie_value = 'Budi';
 			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 			$cookie_name = "password";
 			$cookie_value = $input['password'];
@@ -83,12 +83,12 @@ Route::post('login', function()
 	}
 	else if ($input['nik']=='3576011309930005')
 	{
-		if ($input['nik']=='ardi')
+		if ($input['password']=='ardi')
 		{
         	$currentpage = 'home';	
         	// $username = $user[0]->nama_pengajar;
 			$cookie_name = "username";
-			$cookie_value = 'Yanfa Adi Putra';
+			$cookie_value = 'Tegar Aji Pangestu';
 			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 			$cookie_name = "password";
 			$cookie_value = $input['password'];

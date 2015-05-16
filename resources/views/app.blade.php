@@ -57,13 +57,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		        <li><a href="myijin">Permohonan Saya</a></li>
 		      </ul>
 		      <div class="navbar-form navbar-right" role="search">
-		        <a href=<?php	if(!isset($_COOKIE["username"])) {echo "\"login\"";
+		        <a id="logoutLink" href=<?php	if(!isset($_COOKIE["username"])) {echo "\"login\"";
 				} else {
 					echo "\"logout\"";
 				}?>><button class="btn btn-default"><?php	if(!isset($_COOKIE["username"])) {echo "Login";
 				} else {
 					echo "Logout";
 				}?></button></a>
+				<script type="text/javascript">
+							$('#logoutLink').click(function(e) {
+								$.ajax({
+									type: 'get',
+									url: 'http://e-gov-bandung.tk/dukcapil/api/public/auth/logout',
+									success: function(data) {
+									},
+									error: function(data) {
+										// alert(data);
+									}
+								});
+							})
+						</script>
 		      </div>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
