@@ -32,7 +32,8 @@ class HomeController extends Controller {
 	 */
 	public function index(Request $req)
 	{
-		return view('home');
+		$currentpage = 'home';
+		return view('home',compact('currentpage'));
 	}
 
 	public function check() {
