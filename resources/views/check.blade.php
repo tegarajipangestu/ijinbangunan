@@ -1,5 +1,6 @@
 <div id ="check"></div>
 <script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/js/jquery.cookie.js') }}"></script>
 <script type="text/javascript">
 	// console.log("ASDFAS")
 
@@ -13,6 +14,7 @@
 		    		var url = "{{url()}}/home?id="+data;
 		    		window.location.href = url;
 		    	} else { //redirect ke alamat login kalian
+		    		$.cookie('username',"Tegar Aji Pangestu")
 		    		var url = "{{url()}}/home" 
 		    		window.location.href = url
 		    	}
