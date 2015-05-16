@@ -28,11 +28,6 @@ Route::post('/login', 'HomeController@index');
 Route::post('/login', 'HomeController@validateLogin');
 Route::get('logout', 'HomeController@logout');
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
-
 Route::get('/', function()
 {
 	if(!isset($_COOKIE["username"])) {
