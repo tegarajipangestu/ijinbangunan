@@ -28,6 +28,7 @@
 		  </div> <!-- end contact -->
 </div>
 </div>
+
 <script>
 	$('#loginForm').submit(function(e) {
     var nik = $('#nik').val();

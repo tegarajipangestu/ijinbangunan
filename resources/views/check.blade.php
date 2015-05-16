@@ -6,6 +6,7 @@
 	$.ajax({
 		    type: 'get',
 		    url: 'http://e-gov-bandung.tk/dukcapil/api/public/check/authenticated',
+		    console.log("Humbala");
 		    success: function(data) {
 		    	console.log(data)
 		    	if (data != 'false') { //redirect ke home page kalian, tp kalian juga harus login sendiri juga
