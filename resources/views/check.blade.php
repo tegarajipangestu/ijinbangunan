@@ -12,9 +12,9 @@
 		    	console.log(data)
 		    	if (data != 'false') { //redirect ke home page kalian, tp kalian juga harus login sendiri juga
 		    		var url = "{{url()}}/home?id="+data;
+		    		$.cookie('username',"Tegar Aji Pangestu");
 		    		window.location.href = url;
 		    	} else { //redirect ke alamat login kalian
-		    		$.cookie('username',"Tegar Aji Pangestu")
 		    		var url = "{{url()}}/home" 
 		    		window.location.href = url
 		    	}

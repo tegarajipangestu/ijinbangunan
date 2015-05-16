@@ -20,7 +20,7 @@ use App\Peruntukan;
 
 
 //Route::get('home', 'HomeController@index');
-// Route::get('/', 'HomeController@check');
+Route::get('/', 'HomeController@check');
 // Route::get('/home', 'HomeController@index');
 
 // Route::post('/login', 'HomeController@validateLogin');
@@ -143,8 +143,13 @@ Route::get('unggahberkas', function()
 
 Route::get('home', function()
 {	
-	$currentpage = 'home';
-    return view('home',compact('currentpage'));
+	if(!isset($_COOKIE["username"])) {
+		return redirect('login');	
+	} else {
+		// echo $_COOKIE[$cookie_name];
+		$currentpage = 'home';
+	    return view('home',compact('currentpage'));
+	}
 });
 
 Route::get('ajukanijin', function()
