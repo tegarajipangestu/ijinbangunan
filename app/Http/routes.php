@@ -180,7 +180,7 @@ Route::get('peruntukanlahan/{id}', function($id)
 Route::get('terimaijin/{id}', function($id)
 {
 	DB::table('ppl_imb_permohonans')
-	            ->where('ppl_imb_permohonan_nomor', $id)
+	            ->where('ppl_imb_permohonans.permohonan_nomor', $id)
 	            ->update(array('ppl_imb_statushak' => 'Diterima'));
 	            return redirect('admintable');
 });
@@ -188,7 +188,7 @@ Route::get('terimaijin/{id}', function($id)
 Route::get('tolakijin/{id}', function($id)
 {
 	DB::table('ppl_imb_permohonans')
-	            ->where('ppl_imb_permohonan_nomor', $id)
+	            ->where('ppl_imb_permohonans.permohonan_nomor', $id)
 	            ->update(array('ppl_imb_statushak' => 'Ditolak'));
 	            return redirect('admintable');
 });
