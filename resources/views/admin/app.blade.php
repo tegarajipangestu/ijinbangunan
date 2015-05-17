@@ -70,12 +70,10 @@
 									} else {
 										if ($_COOKIE[$cookie_name]!='admin')
 										{
-											echo "Huba";
 											header('Location: '.'login');											
 										}
 										else
 										{
-											echo "Habu";
 										    echo $_COOKIE[$cookie_name];											
 										}
 									}

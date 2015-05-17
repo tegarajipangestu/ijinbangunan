@@ -185,12 +185,46 @@ Route::get('terimaijin/{id}', function($id)
 	            return redirect('admintable');
 });
 
+Route::post('updateperuntukkan', function()
+{
+	$input = Request::all();
+	// dd($input);
+	DB::table('ppl_imb_peruntukkan_lahan')
+	            ->where('ppl_imb_peruntukkan_lahan.id_peruntukkan', $input['id_peruntukkan'])
+	            ->where('ppl_imb_peruntukkan_lahan.id_kecamatan', $input['id_kecamatan'])
+	            ->delete();
+	$result = DB::table('ppl_imb_peruntukkan')
+	            ->where('ppl_imb_peruntukkan.peruntukkan', $input['peruntukkan'])
+	            ->first();		            
+	// dd($result->peruntukkan);
+	DB::table('ppl_imb_peruntukkan_lahan')
+	            ->insert(['ppl_imb_peruntukkan_lahan.id_kecamatan' => $input['id_kecamatan'], 'ppl_imb_peruntukkan_lahan.id_peruntukkan' => $result->id_peruntukkan]);
+	return redirect('bangunantable');
+});
+
 Route::get('tolakijin/{id}', function($id)
 {
 	DB::table('ppl_imb_permohonans')
 	            ->where('ppl_imb_permohonans.permohonan_nomor', $id)
 	            ->update(array('ppl_imb_permohonans.statushak' => 'Ditolak'));
 	            return redirect('admintable');
+});
+
+Route::get('showperuntukkan/{id}', function($id)
+{
+	$result = DB::table('ppl_imb_kecamatan')
+	            ->where('ppl_imb_kecamatan.id_kecamatan', $id)
+	            ->get();
+    return $result;
+});
+
+Route::get('deletebangunan/{id_peruntukkan}/{id_kecamatan}', function($id_peruntukkan,$id_kecamatan)
+{
+	DB::table('ppl_imb_peruntukkan_lahan')
+	            ->where('ppl_imb_peruntukkan_lahan.id_kecamatan','=' ,$id_kecamatan)
+	            ->where('ppl_imb_peruntukkan_lahan.id_peruntukkan','=' ,$id_peruntukkan)
+	            ->delete();
+	            return redirect('bangunantable');
 });
 
 Route::get('keluhan', function()
@@ -289,9 +323,12 @@ Route::get('bangunantable', function()
             ->join('ppl_imb_peruntukkan_lahan', 'ppl_imb_peruntukkan_lahan.id_peruntukkan', '=', 'ppl_imb_peruntukkan.id_peruntukkan')
             ->rightjoin('ppl_imb_kecamatan', 'ppl_imb_peruntukkan_lahan.id_kecamatan', '=', 'ppl_imb_kecamatan.id_kecamatan')
             ->get();
+		$peruntukkans = DB::table('ppl_imb_peruntukkan')
+            ->get();
+
 		$currentpage = 'bangunan';
 		// dd($permohonans);
-		return view('admin.bangunan',compact('currentpage','permohonans'));
+		return view('admin.bangunan',compact('currentpage','permohonans','peruntukkans'));
 	});
 
 Route::get('admincalendar', function()
