@@ -185,6 +185,23 @@ Route::get('terimaijin/{id}', function($id)
 	            return redirect('admintable');
 });
 
+Route::post('tambahperuntukkan', function()
+{
+	$input = Request::all();
+	// dd($input);
+	$result1 = DB::table('ppl_imb_peruntukkan')
+	            ->where('ppl_imb_peruntukkan.peruntukkan', $input['peruntukkan'])
+	            ->first();		            
+	$result2 = DB::table('ppl_imb_kecamatan')
+	            ->where('ppl_imb_kecamatan.nama_kecamatan', $input['kecamatan'])
+	            ->first();		            
+
+	// dd($result->peruntukkan);
+	DB::table('ppl_imb_peruntukkan_lahan')
+	            ->insert(['ppl_imb_peruntukkan_lahan.id_kecamatan' => $result2->id_kecamatan, 'ppl_imb_peruntukkan_lahan.id_peruntukkan' => $result1->id_peruntukkan]);
+	return redirect('bangunantable');
+});
+
 Route::post('updateperuntukkan', function()
 {
 	$input = Request::all();
@@ -329,6 +346,19 @@ Route::get('bangunantable', function()
 		$currentpage = 'bangunan';
 		// dd($permohonans);
 		return view('admin.bangunan',compact('currentpage','permohonans','peruntukkans'));
+	});
+
+Route::get('tambahperuntukkan', function()
+	{
+		$peruntukkans = DB::table('ppl_imb_peruntukkan')
+            ->get();
+
+		$kecamatans = DB::table('ppl_imb_kecamatan')
+            ->get();
+
+		$currentpage = 'bangunan';
+		// dd($permohonans);
+		return view('admin.tambahperuntukkan',compact('currentpage','peruntukkans','kecamatans'));
 	});
 
 Route::get('admincalendar', function()
