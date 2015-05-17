@@ -283,6 +283,17 @@ Route::get('admintable', function()
 		// dd($permohonans);
 		return view('admin.table',compact('currentpage','permohonans'));
 	});
+Route::get('bangunantable', function()
+	{
+		$permohonans = DB::table('ppl_imb_peruntukkan')
+            ->join('ppl_imb_peruntukkan_lahan', 'ppl_imb_peruntukkan_lahan.id_peruntukkan', '=', 'ppl_imb_peruntukkan.id_peruntukkan')
+            ->rightjoin('ppl_imb_kecamatan', 'ppl_imb_peruntukkan_lahan.id_kecamatan', '=', 'ppl_imb_kecamatan.id_kecamatan')
+            ->get();
+		$currentpage = 'bangunan';
+		// dd($permohonans);
+		return view('admin.bangunan',compact('currentpage','permohonans'));
+	});
+
 Route::get('admincalendar', function()
 	{
 		$currentpage = 'calendar';

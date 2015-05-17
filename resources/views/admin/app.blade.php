@@ -68,7 +68,16 @@
 									if(!isset($_COOKIE[$cookie_name])) {
 										header('Location: '.'login');
 									} else {
-									    echo $_COOKIE[$cookie_name];
+										if ($_COOKIE[$cookie_name]!='admin')
+										{
+											echo "Huba";
+											header('Location: '.'login');											
+										}
+										else
+										{
+											echo "Habu";
+										    echo $_COOKIE[$cookie_name];											
+										}
 									}
 								 ?>
 								<span class="caret"></span>
@@ -115,6 +124,7 @@
 						<li><a href="admintypography"><i class="icon-font"></i><span class="hidden-tablet"> Typography</span></a></li>
 						<li><a href="admingallery"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery</span></a></li> -->
 						<li><a href="admintable"><i class="icon-align-justify"></i><span class="hidden-tablet"> Permohonan</span></a></li>
+						<li><a href="bangunantable"><i class="icon-align-justify"></i><span class="hidden-tablet"> Peruntukan Bangunan</span></a></li>
 <!-- 						<li><a href="adminfile-manager"><i class="icon-folder-open"></i><span class="hidden-tablet"> File Manager</span></a></li>
 						<li><a href="adminicon"><i class="icon-star"></i><span class="hidden-tablet"> Icons</span></a></li>
 						<li><a href="adminlogin"><i class="icon-lock"></i><span class="hidden-tablet"> Login Page</span></a></li> -->
