@@ -181,7 +181,7 @@ Route::get('terimaijin/{id}', function($id)
 {
 	DB::table('ppl_imb_permohonans')
 	            ->where('ppl_imb_permohonans.permohonan_nomor', $id)
-	            ->update(array('ppl_imb_permohonan.statushak' => 'Diterima'));
+	            ->update(array('ppl_imb_permohonans.statushak' => 'Diterima'));
 	            return redirect('admintable');
 });
 
