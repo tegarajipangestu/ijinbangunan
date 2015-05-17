@@ -24,6 +24,8 @@
 							@elseif ($permohonan->statushak=='Diterima')														
 							<p style="float:right;color:green"><b>Status Hak : {{$permohonan->statushak}}</b></p>
 							@endif
+							<h4>Masa Berlaku ijin : tinggal <?php echo 365 - round((time()-strtotime($permohonan->created_at))/86400)
+							; ?> hari lagi</h4>
 						</div>
 					@endforeach
 	  				</div>
