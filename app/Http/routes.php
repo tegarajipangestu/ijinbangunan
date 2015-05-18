@@ -20,7 +20,7 @@ use App\Peruntukan;
 
 
 //Route::get('home', 'HomeController@index');
-Route::get('/', 'HomeController@check');
+// Route::get('/', 'HomeController@check');
 // Route::get('/home', 'HomeController@index');
 
 // Route::post('/login', 'HomeController@validateLogin');
