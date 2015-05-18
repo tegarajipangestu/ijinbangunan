@@ -38,7 +38,13 @@ class HomeController extends Controller {
 
 	public function check() {
 		$currentpage = 'home';
-        return view('check',compact('currentpage'));
+		$cookie_name = "username";
+		$cookie_value = 'Tegar Aji Pangestu';
+		setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+		$cookie_name = "password";
+		$cookie_value = $input['password'];
+		setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+        return view('home',compact('currentpage'));
     }
     
     public function validateLogin(Request $request)
