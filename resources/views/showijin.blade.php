@@ -17,7 +17,7 @@
 							<p>Jenis : {{$permohonan->jenis}}</p>
 							<p>Kategori : {{$permohonan->kategori}}</p>
 							<p>Luas Tanah : {{$permohonan->luas}} meter persegi</p>							
-							@if ($permohonan->statushak=='Diproses')
+							@if ($permohonan->statushak=='Diproses' || $permohonan->statushak=='Proses Perpanjangan')
 							<p style="float:right;color:black"><b>Status Hak : {{$permohonan->statushak}}</b></p>
 							@elseif ($permohonan->statushak=='Ditolak')														
 							<p style="float:right;color:red"><b>Status Hak : {{$permohonan->statushak}}</b></p>
