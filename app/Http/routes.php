@@ -3,7 +3,6 @@ use App\Keluhan;
 use App\Permohonan;
 use App\Kecamatan;
 use App\Peruntukan;
-use Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -190,7 +189,7 @@ Route::get('perpanjangijin/{id}', function($id)
 {
 	DB::table('ppl_imb_permohonans')
 	            ->where('ppl_imb_permohonans.permohonan_nomor', $id)
-	            ->update(array('ppl_imb_permohonans.statushak' => 'Proses Perpanjangan','<ppl_imb_permohonans class="updated_at"></ppl_imb_permohonans>' => Carbon::now()));
+	            ->update(array('ppl_imb_permohonans.statushak' => 'Proses Perpanjangan'));
 	            return redirect('myijin');
 });
 
