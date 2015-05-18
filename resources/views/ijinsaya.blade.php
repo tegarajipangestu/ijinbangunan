@@ -11,9 +11,13 @@
 					<br>
 					@foreach ($permohonans as $permohonan)						
 						<div style="background-color:#F0F0F0;padding:15px;margin:15px">
+							@if ($permohonan->statushak=='Diterima')
 							<a href="printlaporan/{{$permohonan->permohonan_nomor}}">
 								<h4>Nomor Permohonan : Distarcip/2015/IMB/01/{{$permohonan->permohonan_nomor}}</h4>
-							</a>							
+							</a>
+							@else
+								<h4>Nomor Permohonan : Distarcip/2015/IMB/01/{{$permohonan->permohonan_nomor}}</h4>
+							@endif							
 							<h3>{{$permohonan->username}}</h3>
 							<p>Pemegang Hak : {{$permohonan->pemeganghak}}</p>							
 							<h4>Lokasi Bangunan : {{$permohonan->lokasi}}</h4>							
@@ -26,6 +30,8 @@
 							<p style="float:right;color:red"><b>Status Hak : {{$permohonan->statushak}}</b></p>
 							@elseif ($permohonan->statushak=='Diterima')														
 							<p style="float:right;color:green"><b>Status Hak : {{$permohonan->statushak}}</b></p>
+							<h4>Masa Berlaku ijin : tinggal <?php echo 365 - round((time()-strtotime($permohonan->created_at))/86400)
+							; ?> hari lagi</h4>
 							@endif
 						</div>
 					@endforeach
