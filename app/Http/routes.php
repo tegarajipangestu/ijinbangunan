@@ -189,7 +189,7 @@ Route::get('perpanjangijin/{id}', function($id)
 {
 	DB::table('ppl_imb_permohonans')
 	            ->where('ppl_imb_permohonans.permohonan_nomor', $id)
-	            ->update(array('ppl_imb_permohonans.statushak' => 'Proses Perpanjangan'));
+	            ->update(array('ppl_imb_permohonans.statushak' => 'Proses Perpanjangan','ppl_imb_permohonans.updated_at' => Carbon::now()));
 	            return redirect('myijin');
 });
 
