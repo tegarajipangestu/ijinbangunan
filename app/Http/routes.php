@@ -185,6 +185,14 @@ Route::get('terimaijin/{id}', function($id)
 	            return redirect('admintable');
 });
 
+Route::get('perpanjangijin/{id}', function($id)
+{
+	DB::table('ppl_imb_permohonans')
+	            ->where('ppl_imb_permohonans.permohonan_nomor', $id)
+	            ->update(array('ppl_imb_permohonans.statushak' => 'Proses Perpanjangan'));
+	            return redirect('myijin');
+});
+
 Route::post('tambahperuntukkan', function()
 {
 	$input = Request::all();
