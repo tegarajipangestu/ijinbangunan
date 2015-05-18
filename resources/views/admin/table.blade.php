@@ -47,7 +47,7 @@
 						<a class="btn btn-danger" href="tolakijin/{{$permohonan->permohonan_nomor}}">
 							<i class="halflings-icon white trash"></i> 
 						</a>
-						@elseif ($permohonan->statushak=='Diproses')
+						@elseif ($permohonan->statushak=='Diproses' || $permohonan->statushak=='Proses Perpanjangan')
 						<a class="btn btn-success" href="terimaijin/{{$permohonan->permohonan_nomor}}">
 							<i class="halflings-icon white zoom-in"></i>  
 						</a>
