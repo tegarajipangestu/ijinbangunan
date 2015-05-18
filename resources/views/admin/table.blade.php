@@ -37,7 +37,7 @@
 						@if ($permohonan->statushak=='Diterima')
 						<span class="label label-success">Diterima</span>
 						@elseif ($permohonan->statushak=='Diproses' || $permohonan->statushak=='Proses Perpanjangan')
-						<span class="label label-warning">Diproses</span>
+						<span class="label label-warning">$permohonan->statushak</span>
 						@elseif ($permohonan->statushak=='Ditolak')
 						<span class="label label-important">Ditolak</span>
 						@endif
